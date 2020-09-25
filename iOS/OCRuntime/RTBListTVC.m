@@ -78,9 +78,9 @@
     [super viewDidLoad];
 }
 
-- (void)viewDidUnload {
+
+- (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [super viewDidUnload];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

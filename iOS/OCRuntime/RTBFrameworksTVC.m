@@ -179,6 +179,29 @@ static const NSUInteger kPrivateFrameworks = 1;
                                         @"/System/Library/PrivateFrameworks/PowerlogFullOperators.framework",
                                         @"/System/Library/PrivateFrameworks/PowerlogAccounting.framework",
                                         @"/System/Library/PrivateFrameworks/Accessibility.framework/Frameworks/AXSpringBoardServerInstance.framework", // It will stuck
+                                        @"/System/Library/PrivateFrameworks/AppPredictionUI.framework",
+                                        @"/System/Library/PrivateFrameworks/AssistantSettingsSupport.framework",
+                                        @"/System/Library/PrivateFrameworks/CarPlaySupport.framework",
+                                        @"/System/Library/PrivateFrameworks/ControlCenterUI.framework",
+                                        @"/System/Library/PrivateFrameworks/CoverSheet.framework",
+                                        @"/System/Library/PrivateFrameworks/SearchUI.framework",
+                                        @"/System/Library/PrivateFrameworks/SearchUICardKitProviderSupport.framework",
+                                        @"/System/Library/PrivateFrameworks/SiriUIActivation.framework",
+                                        @"/System/Library/PrivateFrameworks/Spotlight.framework",
+                                        @"/System/Library/PrivateFrameworks/SpotlightUI.framework",
+                                        @"/System/Library/PrivateFrameworks/SpotlightUIInternal.framework",
+                                        @"/System/Library/PrivateFrameworks/SpringBoard.framework",
+                                        @"/System/Library/PrivateFrameworks/SpringBoardHome.framework",
+                                        @"/System/Library/PrivateFrameworks/SpringBoardUI.framework",
+                                        @"/System/Library/PrivateFrameworks/UserNotificationsUIKit.framework",
+                                        @"/System/Library/PrivateFrameworks/VoiceShortcutsUI.framework",//ios 13.3
+                                        @"/System/Library/PrivateFrameworks/AXSpringBoardServerInstance.framework",
+                                        @"/System/Library/PrivateFrameworks/ActionKit.framework",
+                                        @"/System/Library/PrivateFrameworks/ActionKitUI.framework",
+                                        @"/System/Library/PrivateFrameworks/HomeUI.framework",
+                                        @"/System/Library/PrivateFrameworks/VoiceShortcutsUICardKitProviderSupport.framework",
+                                        @"/System/Library/PrivateFrameworks/WorkflowEditor.framework",
+                                        @"/System/Library/PrivateFrameworks/WorkflowUI.framework",
                                         nil];
                 }
                 if ([skipedFrameworks containsObject:bundlePath]) {
@@ -297,7 +320,7 @@ static const NSUInteger kPrivateFrameworks = 1;
 	self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
 	self.definesPresentationContext = YES;
 	self.searchController.searchResultsUpdater = self;
-	self.searchController.dimsBackgroundDuringPresentation = NO;
+    self.searchController.obscuresBackgroundDuringPresentation = NO;
     self.searchController.hidesNavigationBarDuringPresentation = NO;
 	self.tableView.tableHeaderView = self.searchController.searchBar;
     

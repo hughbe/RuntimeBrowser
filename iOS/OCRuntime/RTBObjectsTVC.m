@@ -67,13 +67,11 @@
     [super viewWillAppear:animated];
     
     if(!_object) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No class!"
-                                                        message:@"Open a class header file\nand you'll be able to use it."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"No class!" message:@"Open a class header file\nand you'll be able to use it." preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [alertController dismissViewControllerAnimated:TRUE completion:nil];
+        }]];
+        [self presentViewController:alertController animated:TRUE completion:nil];
         return;
     }
     
@@ -374,12 +372,11 @@
     }
     @catch (NSException *exception) {
         NSLog(@"Exception!  Broke this:  %@", exception);
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                        message:[exception description]
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:[exception description] preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [alertController dismissViewControllerAnimated:TRUE completion:nil];
+        }]];
+        [self presentViewController:alertController animated:TRUE completion:nil];
     }
     
 #pragma clang diagnostic pop
@@ -406,13 +403,11 @@
     }
     
     if([o isKindOfClass:[NSString class]] || [o isKindOfClass:[NSArray class]] || [o isKindOfClass:[NSDictionary class]] || [o isKindOfClass:[NSSet class]]) {
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
-                                                        message:[o description]
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:[o description] preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [alertController dismissViewControllerAnimated:TRUE completion:nil];
+        }]];
+        [self presentViewController:alertController animated:TRUE completion:nil];
         
         return;
     }
@@ -706,12 +701,11 @@
     }
     @catch (NSException *exception) {
         NSLog(@"Exception!  Broke this:  %@", exception);
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                        message:[exception description]
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:[exception description] preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [alertController dismissViewControllerAnimated:TRUE completion:nil];
+        }]];
+        [self presentViewController:alertController animated:TRUE completion:nil];
     }
     
     // Verify the output is good
@@ -736,13 +730,11 @@
     }
     
     if([o isKindOfClass:[NSString class]] || [o isKindOfClass:[NSArray class]] || [o isKindOfClass:[NSDictionary class]] || [o isKindOfClass:[NSSet class]]) {
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
-                                                        message:[o description]
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:[o description] preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [alertController dismissViewControllerAnimated:TRUE completion:nil];
+        }]];
+        [self presentViewController:alertController animated:TRUE completion:nil];
         
         return;
     }

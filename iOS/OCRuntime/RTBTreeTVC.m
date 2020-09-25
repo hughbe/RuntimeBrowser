@@ -35,9 +35,8 @@
 	}
 }
 
-- (void)viewDidUnload {
+- (void)dealloc {
 	self.classDisplayVC = nil;
-	[super viewDidUnload];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

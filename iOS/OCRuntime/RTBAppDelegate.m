@@ -416,13 +416,19 @@
         
         if(success == NO) {
             NSLog(@"Error starting HTTP Server.");
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error starting HTTP Server"
-                                                            message:@""
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
+            __block UIWindow* topWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+            topWindow.rootViewController = [UIViewController new];
+            topWindow.windowLevel = UIWindowLevelAlert + 1;
+
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error starting HTTP Server"
+                                                                            message:@""
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                // important to hide the window after work completed.
+                // this also keeps a reference to the window until the action is invoked.
+                topWindow.hidden = YES; // if you want to hide the topwindow then use this
+                topWindow = nil; // if you want to remove the topwindow then use this
+            }]];
             
             [self.webServer stop];
             self.webServer = nil;
